@@ -3,70 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lazul | Your Bot Developer</title>
+  <title>Lazul | Discord Bot Developer</title>
+  <meta name="description" content="Lazul creates custom Discord bots for communities starting at just £4. Contact via Discord, email, or X for your bot today!">
   <style>
+    /* Reset & Body */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
+      background: linear-gradient(135deg, #1e1e1e, #000000);
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #00bcd4, #009688);
-      color: white;
+      min-height: 100vh;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    /* Main Card */
+    .card {
+      background: #1a1a1a;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+      padding: 40px 30px;
+      max-width: 450px;
+      width: 100%;
       text-align: center;
+      margin-bottom: 40px;
     }
-    .container {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      width: 90%;
-      max-width: 600px;
-    }
+
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
+      border: 3px solid #ff0000;
+      object-fit: cover;
       margin-bottom: 20px;
     }
+
     h1 {
-      font-size: 2.5rem;
-      margin: 10px 0;
+      color: #ff0000;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
     }
+
     h2 {
-      font-size: 1.5rem;
-      margin: 10px 0;
+      font-weight: normal;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #ddd;
     }
-    p {
-      font-size: 1rem;
-      margin: 20px 0;
-    }
-    .btn {
-      background-color: #ff5722;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+
+    /* Buttons */
+    .buttons a {
+      display: inline-block;
       text-decoration: none;
+      color: #fff;
+      background: #ff0000;
+      padding: 12px 25px;
+      margin: 5px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
     }
-    .btn:hover {
-      background-color: #e64a19;
+
+    .buttons a:hover {
+      background: #cc0000;
+    }
+
+    /* Longer description under the card */
+    .description {
+      max-width: 600px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="your-image-url.jpg" alt="Lazul" class="profile-img">
+
+  <!-- Curved Card -->
+  <div class="card">
+    <img src="YOUR_IMAGE_URL_HERE" alt="Lazul Profile" class="profile-img">
     <h1>Lazul</h1>
-    <h2>Your Bot Developer</h2>
-    <p>Crafting seamless and efficient Discord bots tailored to your needs.</p>
-    <a href="https://discord.com/users/your-discord-id" class="btn">Contact on Discord</a>
-    <a href="mailto:your-email@example.com" class="btn">Email Me</a>
-    <a href="https://twitter.com/your-x-handle" class="btn">Follow on X</a>
+    <h2>Discord Bot Developer</h2>
+    <div class="buttons">
+      <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank">Discord</a>
+      <a href="mailto:YOUR_EMAIL@example.com">Email</a>
+      <a href="https://x.com/YOUR_X_HANDLE" target="_blank">X</a>
+    </div>
   </div>
+
+  <!-- Longer Description -->
+  <div class="description">
+    I create custom Discord bots for communities starting at just £4. Each bot is fully tailored to your server's needs, offering features like moderation, games, music, and automation. My bots are fast, reliable, and easy to use, making your server more engaging and fun. Contact me today via Discord, email, or X to get your bot and level up your community experience!
+  </div>
+
 </body>
 </html>
