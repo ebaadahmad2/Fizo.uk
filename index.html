@@ -4,37 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lazul | Discord Bot Developer</title>
-  <meta name="description" content="Lazul creates custom Discord bots for communities starting at just £4. Contact via Discord, email, or X for your bot today!">
+  <meta name="description" content="Our bot builder for only £4 — get it now!!!">
   <style>
-    /* Reset & Body */
+    /* Reset & body */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #1e1e1e, #000000);
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      color: #fff;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
     /* Main Card */
-    .card {
+    .main-card {
       background: #1a1a1a;
       border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-      padding: 40px 30px;
-      max-width: 450px;
-      width: 100%;
+      box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+      padding: 50px 40px;
+      width: 90%;
+      max-width: 700px;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+      position: sticky;
+      top: 50px; /* keeps card visible when scrolling */
     }
 
+    /* Profile Image */
     .profile-img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      border-radius: 15px; /* square with slightly rounded corners */
       border: 3px solid #ff0000;
       object-fit: cover;
       margin-bottom: 20px;
@@ -42,15 +45,21 @@
 
     h1 {
       color: #ff0000;
-      font-size: 2.2rem;
+      font-size: 3rem;
       margin-bottom: 10px;
     }
 
     h2 {
       font-weight: normal;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
       color: #ddd;
+    }
+
+    .short-desc {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #ccc;
     }
 
     /* Buttons */
@@ -61,7 +70,7 @@
       background: #ff0000;
       padding: 12px 25px;
       margin: 5px;
-      border-radius: 30px;
+      border-radius: 35px;
       font-weight: bold;
       transition: 0.3s;
     }
@@ -70,23 +79,41 @@
       background: #cc0000;
     }
 
-    /* Longer description under the card */
-    .description {
-      max-width: 600px;
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1.6;
+    /* Long description */
+    .description-box {
+      background: #1a1a1a;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255,0,0,0.3);
+      padding: 30px 25px;
+      width: 90%;
+      max-width: 800px;
+      margin-bottom: 50px;
+    }
+
+    .description-box img {
+      max-width: 100%;
+      margin: 15px 0;
+      border-radius: 15px;
+    }
+
+    .description-box p {
+      font-size: 1.1rem;
+      line-height: 1.7;
       color: #ccc;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Curved Card -->
-  <div class="card">
-    <img src="YOUR_IMAGE_URL_HERE" alt="Lazul Profile" class="profile-img">
+  <!-- Main Card -->
+  <div class="main-card">
+    <img src="YOUR_PROFILE_IMAGE_URL_HERE" alt="Lazul Profile" class="profile-img">
     <h1>Lazul</h1>
     <h2>Discord Bot Developer</h2>
+    <p class="short-desc">
+      Custom Discord bots: £4 for a standard bot, £6 for premium bots!
+    </p>
     <div class="buttons">
       <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank">Discord</a>
       <a href="mailto:YOUR_EMAIL@example.com">Email</a>
@@ -94,9 +121,31 @@
     </div>
   </div>
 
-  <!-- Longer Description -->
-  <div class="description">
-    I create custom Discord bots for communities starting at just £4. Each bot is fully tailored to your server's needs, offering features like moderation, games, music, and automation. My bots are fast, reliable, and easy to use, making your server more engaging and fun. Contact me today via Discord, email, or X to get your bot and level up your community experience!
+  <!-- Long Description Box -->
+  <div class="description-box">
+    <p>
+      Welcome to my Discord bot development portfolio! I specialize in creating **custom Discord bots** that enhance your server's functionality and entertainment. My bots start at **just £4** for a standard bot, and for premium bots with advanced features, the price is **£6**.
+    </p>
+
+    <p>
+      Each bot is fully tailored to your server's needs. You can request features such as moderation tools, music playback, mini-games, automation commands, welcome messages, server analytics, and much more. My goal is to make your community fun, organized, and interactive.
+    </p>
+
+    <p>
+      Here are some examples of what my bots can do:
+    </p>
+
+    <!-- Example images -->
+    <img src="YOUR_IMAGE_1_URL_HERE" alt="Bot Feature Example 1">
+    <img src="YOUR_IMAGE_2_URL_HERE" alt="Bot Feature Example 2">
+
+    <p>
+      I pride myself on **fast delivery, reliability, and high-quality code**. Whether you want a simple bot for your small server or a premium feature-packed bot for a large community, I can make it happen.
+    </p>
+
+    <p>
+      Don’t wait! Contact me today via **Discord, Email, or X** to get your custom bot and take your server to the next level!
+    </p>
   </div>
 
 </body>
