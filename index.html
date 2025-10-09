@@ -6,88 +6,67 @@
   <title>Lazul | Your Bot Developer</title>
   <style>
     body {
-      background: linear-gradient(135deg, #00ffcc, #006666);
-      color: white;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #00bcd4, #009688);
+      color: white;
+      text-align: center;
     }
-    header {
-      padding: 60px 20px;
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 600px;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
+      font-size: 2.5rem;
+      margin: 10px 0;
     }
     h2 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
-    img.profile {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 4px solid white;
+      font-size: 1.5rem;
+      margin: 10px 0;
     }
     p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 20px auto;
-      line-height: 1.6em;
-    }
-    .buttons {
-      margin-top: 30px;
+      font-size: 1rem;
+      margin: 20px 0;
     }
     .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      margin: 8px;
-      background-color: #004d4d;
+      background-color: #ff5722;
       color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
       text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
     }
     .btn:hover {
-      background-color: #00cc99;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      opacity: 0.8;
+      background-color: #e64a19;
     }
   </style>
 </head>
 <body>
-  <header>
-    <!-- Profile Image -->
-    <img src="IMAGE_URL_HERE" alt="Lazul Profile Picture" class="profile">
-
-    <!-- Name & Title -->
+  <div class="container">
+    <img src="your-image-url.jpg" alt="Lazul" class="profile-img">
     <h1>Lazul</h1>
     <h2>Your Bot Developer</h2>
-
-    <!-- Description -->
-    <p>
-      I create custom Discord bots for communities starting at just £4 each!  
-      Get your own polished, automated bot today and take your server to the next level.
-    </p>
-
-    <!-- Contact Buttons -->
-    <div class="buttons">
-      <a href="https://discord.gg/YOURDISCORDINVITE" class="btn">Discord</a>
-      <a href="mailto:YOUREMAIL@example.com" class="btn">Email</a>
-      <a href="https://x.com/YOURXPROFILE" class="btn">X</a>
-    </div>
-  </header>
-
-  <footer>
-    © 2025 Lazul 
-  </footer>
+    <p>Crafting seamless and efficient Discord bots tailored to your needs.</p>
+    <a href="https://discord.com/users/your-discord-id" class="btn">Contact on Discord</a>
+    <a href="mailto:your-email@example.com" class="btn">Email Me</a>
+    <a href="https://twitter.com/your-x-handle" class="btn">Follow on X</a>
+  </div>
 </body>
 </html>
