@@ -1,154 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lazul - Custom Discord Bots</title>
-  <meta name="description" content="Our bot builder for only £4 — get it now!!!">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="https://i.postimg.cc/L6ThRgY8/android-chrome-192x192.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fizo | Discord Bot Designer</title>
+<style>
+  /* General Reset */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; background:#111; color:#fff; }
 
-  <style>
-    /* Reset & body */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #1e1e1e, #000000);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+  /* Navigation */
+  nav {
+    position: fixed; top:0; width:100%; background:#111; display:flex; justify-content:center; z-index:1000; padding:15px 0;
+  }
+  nav a { color:#fff; text-decoration:none; margin:0 20px; font-weight:bold; transition: color 0.3s; }
+  nav a:hover { color:#ff9900; }
 
-    /* Main Card */
-    .main-card {
-      background: #1a1a1a;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
-      padding: 60px 50px;
-      width: 90%;
-      max-width: 700px;
-      text-align: center;
-      margin-bottom: 50px;
-    }
+  /* Sections */
+  section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:50px 20px; width:100%; }
+  .hero { background:#111; text-align:center; }
+  .projects { background:#1a1a1a; color:#fff; }
+  .about { background:#111; }
+  .contact { background:#1a1a1a; display:flex; flex-direction:column; align-items:center; }
 
-    /* Profile Image */
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 15px; /* square with slightly rounded corners */
-      border: 3px solid #ff0000;
-      object-fit: cover;
-      margin-bottom: 25px;
-    }
+  /* Hero */
+  .hero h1 { font-size:3em; margin-bottom:15px; }
+  .hero p { font-size:1.5em; color:#ff9900; }
 
-    h1 {
-      color: #ff0000;
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+  /* Portfolio Cards */
+  .projects-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px; }
+  .project-card {
+    background:#222; border-radius:10px; padding:25px; width:280px; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .project-card:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(255,153,0,0.4); }
 
-    h2 {
-      font-weight: normal;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #ddd;
-    }
+  /* About */
+  .about p { max-width:700px; text-align:center; font-size:1.1em; line-height:1.6em; }
 
-    .short-desc {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #ccc;
-    }
+  /* Contact Buttons */
+  .contact a {
+    display:inline-block; margin:10px; padding:12px 25px; border:2px solid #ff9900; border-radius:8px;
+    color:#ff9900; text-decoration:none; font-weight:bold; transition: all 0.3s;
+  }
+  .contact a:hover { background:#ff9900; color:#111; }
 
-    /* Buttons */
-    .buttons a {
-      display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      background: #ff0000;
-      padding: 14px 30px;
-      margin: 5px;
-      border-radius: 35px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+  /* Animations */
+  .fade-in { opacity:0; transform: translateY(30px); transition: all 0.8s ease-out; }
+  .fade-in.visible { opacity:1; transform: translateY(0); }
 
-    .buttons a:hover {
-      background: #cc0000;
-    }
-
-    /* Long description */
-    .description-box {
-      background: #1a1a1a;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(255,0,0,0.3);
-      padding: 30px 25px;
-      width: 90%;
-      max-width: 800px;
-      margin-bottom: 50px;
-    }
-
-    .description-box img {
-      max-width: 100%;
-      margin: 15px 0;
-      border-radius: 15px;
-    }
-
-    .description-box p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #ccc;
-      margin-bottom: 15px;
-    }
-  </style>
+  /* Responsive */
+  @media (max-width:768px){
+    nav a { margin:0 10px; font-size:0.9em; }
+    .project-card { width:90%; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Main Card -->
-  <div class="main-card">
-    <img src="https://i.postimg.cc/L6ThRgY8/android-chrome-192x192.png" alt="Lazul Profile" class="profile-img">
-    <h1>Lazul</h1>
-    <h2>Discord Bot Developer</h2>
-    <p class="short-desc">
-      Custom Discord bots: £4 for a standard bot, £6 for premium bots!
-    </p>
-    <div class="buttons">
-      <a href="https://discord.gg/ePe234Hjpz" target="_blank">Discord</a>
-      <a href="mailto:lazul49562@gmail.com">Email</a>
-      <a href="https://x.com/YOUR_X_HANDLE" target="_blank">X</a>
-    </div>
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#projects">Portfolio</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="hero" class="hero fade-in">
+  <h1>Fizo</h1>
+  <p>Discord Bot Designer</p>
+</section>
+
+<section id="projects" class="projects fade-in">
+  <h2>My Bots</h2>
+  <div class="projects-container">
+    <div class="project-card">Bot 1 – Description and features</div>
+    <div class="project-card">Bot 2 – Description and features</div>
+    <div class="project-card">Bot 3 – Description and features</div>
   </div>
+</section>
 
-  <!-- Long Description Box -->
-  <div class="description-box">
-    <p>
-      Welcome to my Discord bot development portfolio! I specialize in creating **custom Discord bots** that enhance your server's functionality and entertainment. My bots start at **just £4** for a standard bot, and for premium bots with advanced features, the price is **£6**.
-    </p>
+<section id="about" class="about fade-in">
+  <h2>About Me</h2>
+  <p>Hi! I'm Fizo, a Discord bot designer specializing in creating interactive and efficient bots. Skills: JavaScript, Python, Node.js. Experience in server management, automation, and custom bot development for communities.</p>
+</section>
 
-    <p>
-      Each bot is fully tailored to your server's needs. You can request features such as moderation tools, music playback, mini-games, automation commands, welcome messages, server analytics, and much more. My goal is to make your community fun, organized, and interactive.
-    </p>
+<section id="contact" class="contact fade-in">
+  <h2>Contact Me</h2>
+  <a href="mailto:lazul@fizo.uk">Email Me</a>
+  <a href="https://discord.gg/YOURDISCORDSERVER" target="_blank">Join Discord Server</a>
+  <a href="https://twitter.com/YOURTWITTER" target="_blank">X (Twitter)</a>
+</section>
 
-    <p>
-      Here are some examples of what my bots can do:
-    </p>
-
-    <!-- Example images -->
-    <img src="YOUR_IMAGE_1_URL_HERE" alt="Bot Feature Example 1">
-    <img src="YOUR_IMAGE_2_URL_HERE" alt="Bot Feature Example 2">
-
-    <p>
-      I pride myself on **fast delivery, reliability, and high-quality code**. Whether you want a simple bot for your small server or a premium feature-packed bot for a large community, I can make it happen.
-    </p>
-
-    <p>
-      Don’t wait! Contact me today via **Discord, Email, or X** to get your custom bot and take your server to the next level!
-    </p>
-  </div>
+<script>
+  // Scroll fade-in effect
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); appearOnScroll.unobserve(entry.target); } });
+  }, appearOptions);
+  faders.forEach(fader => { appearOnScroll.observe(fader); });
+</script>
 
 </body>
 </html>
