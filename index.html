@@ -5,53 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fizo | Discord Bot Designer</title>
 <style>
-  /* General Reset */
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; background:#111; color:#fff; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior:smooth; background:#111; color:#fff; }
 
-  /* Navigation */
   nav {
     position: fixed; top:0; width:100%; background:#111; display:flex; justify-content:center; z-index:1000; padding:15px 0;
   }
-  nav a { color:#fff; text-decoration:none; margin:0 20px; font-weight:bold; transition: color 0.3s; }
+  nav a { color:#fff; text-decoration:none; margin:0 20px; font-weight:bold; transition:color 0.3s; }
   nav a:hover { color:#ff9900; }
 
-  /* Sections */
-  section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:50px 20px; width:100%; }
-  .hero { background:#111; text-align:center; }
+  section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:50px 20px; width:100%; text-align:center; }
+  .hero { background:#111; }
   .projects { background:#1a1a1a; color:#fff; }
   .about { background:#111; }
-  .contact { background:#1a1a1a; display:flex; flex-direction:column; align-items:center; }
+  .contact { background:#1a1a1a; }
 
-  /* Hero */
-  .hero h1 { font-size:3em; margin-bottom:15px; }
+  .hero h1 { font-size:3em; margin-bottom:10px; }
   .hero p { font-size:1.5em; color:#ff9900; }
 
-  /* Portfolio Cards */
-  .projects-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px; }
-  .project-card {
-    background:#222; border-radius:10px; padding:25px; width:280px; transition: transform 0.3s, box-shadow 0.3s;
+  .projects h2, .about h2, .contact h2 { margin-bottom:20px; color:#ff9900; }
+
+  .projects p {
+    max-width:800px; margin-bottom:20px; line-height:1.8; font-size:1.1em; color:#ddd;
   }
-  .project-card:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(255,153,0,0.4); }
 
-  /* About */
-  .about p { max-width:700px; text-align:center; font-size:1.1em; line-height:1.6em; }
-
-  /* Contact Buttons */
   .contact a {
     display:inline-block; margin:10px; padding:12px 25px; border:2px solid #ff9900; border-radius:8px;
-    color:#ff9900; text-decoration:none; font-weight:bold; transition: all 0.3s;
+    color:#ff9900; text-decoration:none; font-weight:bold; transition:all 0.3s;
   }
   .contact a:hover { background:#ff9900; color:#111; }
 
-  /* Animations */
-  .fade-in { opacity:0; transform: translateY(30px); transition: all 0.8s ease-out; }
-  .fade-in.visible { opacity:1; transform: translateY(0); }
+  .fade-in { opacity:0; transform:translateY(30px); transition:all 0.8s ease-out; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
 
-  /* Responsive */
   @media (max-width:768px){
     nav a { margin:0 10px; font-size:0.9em; }
-    .project-card { width:90%; }
+    .projects p { font-size:1em; }
   }
 </style>
 </head>
@@ -66,36 +55,58 @@
 
 <section id="hero" class="hero fade-in">
   <h1>Fizo</h1>
-  <p>Discord Bot Designer</p>
+  <p>Professional Discord Bot Designer & Developer</p>
 </section>
 
 <section id="projects" class="projects fade-in">
-  <h2>My Bots</h2>
-  <div class="projects-container">
-    <div class="project-card">Bot 1 – Description and features</div>
-    <div class="project-card">Bot 2 – Description and features</div>
-    <div class="project-card">Bot 3 – Description and features</div>
-  </div>
+  <h2>What I Do</h2>
+  <p>
+    I specialize in designing and developing high-quality, custom Discord bots built to enhance your community’s experience.  
+    Each bot is crafted with precision, focusing on both performance and usability — whether it’s for moderation, automation, tickets, leveling, or entertainment.
+  </p>
+  <p>
+    Over the past year, I’ve successfully completed <strong>more than 75 custom orders</strong> for clients and Discord servers of all sizes.  
+    My bots are known for their clean design, efficient functionality, and ease of use — helping server owners run their communities smoothly and professionally.
+  </p>
+  <p>
+    I handle every project personally — from concept and command structure to interface and setup.  
+    Whether you need a full-featured multi-purpose bot or a simple automation system, I’ll ensure it fits your brand, server culture, and vision perfectly.
+  </p>
+  <p>
+    My goal is simple: to deliver Discord bots that feel reliable, unique, and built with care — the kind of tools that make your community stand out.
+  </p>
 </section>
 
 <section id="about" class="about fade-in">
   <h2>About Me</h2>
-  <p>Hi! I'm Fizo, a Discord bot designer specializing in creating interactive and efficient bots. Skills: JavaScript, Python, Node.js. Experience in server management, automation, and custom bot development for communities.</p>
+  <p>
+    I’m <strong>Fizo</strong> — a passionate Discord developer and designer who loves building functional and creative digital tools.  
+    I focus on creating systems that make community management easier, smoother, and more engaging.  
+    My work combines clean coding practices, visual consistency, and seamless user interaction.
+  </p>
+  <p>
+    With expertise in <strong>JavaScript</strong>, <strong>Node.js</strong>, and Discord API frameworks, I strive to ensure that every bot I deliver performs flawlessly.  
+    Beyond just coding, I also help with bot setup, customization, and server integration — giving clients a complete, ready-to-use experience.
+  </p>
 </section>
 
 <section id="contact" class="contact fade-in">
   <h2>Contact Me</h2>
   <a href="mailto:lazul@fizo.uk">Email Me</a>
-  <a href="https://discord.gg/YOURDISCORDSERVER" target="_blank">Join Discord Server</a>
+  <a href="https://discord.gg/ePe234Hjpz" target="_blank">Join My Discord Server</a>
   <a href="https://twitter.com/YOURTWITTER" target="_blank">X (Twitter)</a>
 </section>
 
 <script>
-  // Scroll fade-in effect
   const faders = document.querySelectorAll('.fade-in');
   const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
   const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); appearOnScroll.unobserve(entry.target); } });
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
   }, appearOptions);
   faders.forEach(fader => { appearOnScroll.observe(fader); });
 </script>
