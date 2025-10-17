@@ -11,24 +11,23 @@
     body{margin:0;background:linear-gradient(180deg,#071027 0%, #071826 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; color:var(--accent)}
     .wrap{max-width:980px;margin:6vh auto;padding:28px;background:rgba(255,255,255,0.02);border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
 
-    nav{display:flex;justify-content:flex-end;margin-bottom:18px}
-    nav a{color:var(--accent);text-decoration:none;font-size:16px;padding:8px 14px;background:rgba(0,0,0,0.2);border-radius:8px}
+    nav{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px}
+    nav .brand{font-weight:700;color:#fff;font-size:18px}
 
-    header{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+    header{display:flex;flex-direction:row;align-items:center;gap:24px}
+    .hero-left{flex:1}
     h1{font-size:48px;line-height:1;margin:6px 0}
     .typewrap{display:inline-block;position:relative;padding-right:6px}
     .cursor{display:inline-block;width:2px;background:var(--accent);height:1.05em;vertical-align:middle;margin-left:6px;animation:blink 1s steps(2,end) infinite}
     @keyframes blink{50%{opacity:0}}
 
-    .lead{margin:10px 0 22px;font-size:16px}
+    p.lead{color:var(--muted);margin:10px 0 22px;font-size:16px}
 
-    section{margin:30px 0}
-    .portfolio-item, .pricing-item{margin-bottom:18px;padding:16px;background:rgba(255,255,255,0.02);border-radius:10px}
-    .pricing-item strong{display:block;margin-bottom:4px}
+    .cards{display:flex;gap:14px;flex-wrap:wrap}
+    .card{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;min-width:180px}
 
-    footer{margin-top:20px;font-size:14px;text-align:center}
-
-    button.discord-btn{margin-top:20px;padding:12px 20px;font-size:16px;border:none;border-radius:8px;background:var(--accent);color:#0f1724;cursor:pointer}
+    footer{margin-top:20px;color:var(--muted);font-size:13px}
 
     @media (max-width:680px){h1{font-size:36px}.wrap{margin:4vh 12px}}
   </style>
@@ -36,61 +35,73 @@
 <body>
   <div class="wrap">
     <nav>
-      <a href="#portfolio">See All My Portfolio</a>
+      <div class="brand">Fizo</div>
+      <a href="#">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <header>
-      <h1 aria-label="Fizo — Discord Bot Designer">
-        <span class="typewrap" id="type-target"></span>
-        <span class="cursor" aria-hidden="true"></span>
-      </h1>
-      <p class="lead">Scroll down to view projects and pricing.</p>
+      <div class="hero-left">
+        <h1 aria-label="Fizo — Discord Bot Designer">
+          <span class="typewrap" id="type-target"></span>
+          <span class="cursor" aria-hidden="true"></span>
+        </h1>
+        <p class="lead">I build production-quality Discord bots — moderation, automation, music, economy systems and more.</p>
+
+        <div class="cards">
+          <div class="card"><strong>Custom Bots</strong><div style="color:var(--muted);font-size:13px">Moderation, tickets, economy</div></div>
+          <div class="card"><strong>Automation</strong><div style="color:var(--muted);font-size:13px">Welcome messages, role assignment</div></div>
+          <div class="card"><strong>Support</strong><div style="color:var(--muted);font-size:13px">Docs & long-term maintenance</div></div>
+        </div>
+      </div>
     </header>
 
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div class="portfolio-item">Project 1: Custom Discord bot with automation features.</div>
-      <div class="portfolio-item">Project 2: Economy system bot with roles and currency.</div>
-      <div class="portfolio-item">Project 3: Music bot with playlist management.</div>
-      <div class="portfolio-item">Project 4: Ticketing and support bot for servers.</div>
-    </section>
-
-    <section id="pricing">
-      <h2>Pricing</h2>
-      <div class="pricing-item"><strong>Basic</strong>$5 - Core bot features</div>
-      <div class="pricing-item"><strong>Advance</strong>$10 - Additional automation and commands</div>
-      <div class="pricing-item"><strong>Premium</strong>$15 - Full feature set, no hosting included</div>
-    </section>
-
-    <footer>
-      <button class="discord-btn" onclick="window.location.href='https://discord.com/users/lazul49562'">DM me on Discord</button>
-    </footer>
+    <footer id="contact">Email: lazul@fizo.uk • Contact me on Discord</footer>
   </div>
 
   <script>
+    // Typing animation
     (function(){
       const target = document.getElementById('type-target');
-      const phrases = ['Fizo'];
+      const phrases = [
+        'Fizo',
+        'Fizo — Discord Bot Designer',
+        'Custom Discord bots • Automation • Support'
+      ];
+
       const TYPE_SPEED = 70;
       const DELETE_SPEED = 40;
       const PAUSE_AFTER = 1400;
+
       let phraseIndex = 0;
       let charIndex = 0;
       let mode = 'typing';
+
       function tick(){
         const current = phrases[phraseIndex];
         if(mode === 'typing'){
           charIndex++;
           target.textContent = current.slice(0,charIndex);
-          if(charIndex === current.length){mode='paused'; setTimeout(()=>{mode='deleting'; tick();}, PAUSE_AFTER); return;}
+          if(charIndex === current.length){
+            mode = 'paused';
+            setTimeout(()=>{ mode = 'deleting'; tick(); }, PAUSE_AFTER);
+            return;
+          }
           setTimeout(tick, TYPE_SPEED + Math.random()*40);
         } else if(mode === 'deleting'){
           charIndex--;
           target.textContent = current.slice(0,charIndex);
-          if(charIndex===0){phraseIndex=(phraseIndex+1)%phrases.length; mode='typing'; setTimeout(tick,220); return;}
-          setTimeout(tick, DELETE_SPEED+Math.random()*30);
+          if(charIndex === 0){
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            mode = 'typing';
+            setTimeout(tick, 220);
+            return;
+          }
+          setTimeout(tick, DELETE_SPEED + Math.random()*30);
         }
       }
+
       tick();
     })();
   </script>
