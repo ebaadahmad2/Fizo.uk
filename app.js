@@ -1,17 +1,31 @@
-const chat = document.getElementById('chat');
-const input = document.getElementById('input');
+const chatItems = document.getElementById("chatItems");
+const chatWindow = document.getElementById("chatWindow");
+const input = document.getElementById("input");
+const sendBtn = document.getElementById("sendBtn");
 
-async function sendMessage(msg) {
-  chat.innerHTML += `<div><b>You:</b> ${msg}</div>`;
-  chat.innerHTML += `<div><b>FIZO:</b> Thinking... (connect to backend here)</div>`;
+// Sample chat list
+const chats = ["Math Help", "AI Coding", "Fortnite Map Ideas"];
+chats.forEach(name => {
+  const li = document.createElement("li");
+  li.textContent = name;
+  chatItems.appendChild(li);
+});
+
+function addMessage(text, type = "bot") {
+  const msg = document.createElement("div");
+  msg.className = `message ${type}`;
+  msg.textContent = text;
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-if (input) {
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && input.value.trim()) {
-      sendMessage(input.value.trim());
-      input.value = '';
-    }
-  });
-}
-
+sendBtn.addEventListener("click", () => {
+  const msg = input.value.trim();
+  if (msg) {
+    addMessage(msg, "user");
+    input.value = "";
+    setTimeout(() => {
+      addMessage("🤖 FIZO: I'm thinking...");
+    }, 600);
+  }
+});
