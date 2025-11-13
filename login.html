@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - FIZO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">FIZO</div>
+    <div class="nav-right"><a href="index.html">Home</a></div>
+  </nav>
+
+  <main>
+    <h2>Login</h2>
+    <button id="googleLogin">Sign in with Google</button>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } 
+      from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+    // Your Firebase config (replace with your actual values from Firebase Console)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDE9A-zIXDHPffYf0-l256TF2VHKHZaq60",
+      authDomain: "fizoai.firebaseapp.com",
+      projectId: "fizoai",
+      storageBucket: "fizoai.firebasestorage.app",
+      messagingSenderId: "880650940716",
+      appId: "1:880650940716:web:64bdc2a933906ffd367c89"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    async function login() {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        alert(`Welcome ${user.displayName}`);
+        window.location.href = "index.html";
+      } catch (error) {
+        console.error(error);
+        alert("Login failed");
+      }
+    }
+
+    document.getElementById("googleLogin").addEventListener("click", login);
+  </script>
+</body>
+</html>
 
