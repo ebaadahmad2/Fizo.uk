@@ -66,3 +66,15 @@ button:hover {
   background-color: #9a67ea;
 }
 
+/* Welcome box bottom-left */
+.welcome-box {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: #1f1f1f;
+  color: #bb86fc;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
