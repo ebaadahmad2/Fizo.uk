@@ -1,58 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FIZO Chat</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>FIZO</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-left">FIZO</div>
-    <div class="nav-right">
-      <button id="authBtn">Login</button>
-    </div>
-  </nav>
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="title">FIZO</div>
+    <button id="loginBtn">Login</button>
+  </header>
 
-  <main class="chat-container">
-    <div id="chat" class="chat-box"></div>
-    <div class="input-area">
-      <input id="input" placeholder="Type your message..." />
-      <button id="sendBtn">➤</button>
-    </div>
-  </main>
+  <!-- Main Layout -->
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="chat-list">
+        <button class="new-chat">+ New Chat</button>
+        <ul id="chatItems">
+          <!-- Dynamically filled with chat names -->
+        </ul>
+      </div>
+      <div class="welcome-box">Welcome, Ebaad</div>
+    </aside>
 
-  <!-- Welcome box -->
-  <div id="welcomeBox" class="welcome-box"></div>
+    <!-- Chat Area -->
+    <main class="chat-area">
+      <div id="chatWindow" class="chat-window">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="input-area">
+        <input id="input" placeholder="Type a message..." />
+        <button id="sendBtn">➤</button>
+      </div>
+    </main>
+  </div>
 
-  <script type="module">
-    import { getAuth, onAuthStateChanged, signOut } 
-      from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
-
-    const auth = getAuth();
-    const authBtn = document.getElementById("authBtn");
-    const welcomeBox = document.getElementById("welcomeBox");
-
-    // Watch auth state
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        // User is signed in
-        authBtn.textContent = "Sign out";
-        welcomeBox.textContent = `Welcome, ${user.displayName}`;
-        authBtn.onclick = () => {
-          signOut(auth).then(() => {
-            window.location.href = "login.html";
-          });
-        };
-      } else {
-        // User not signed in
-        authBtn.textContent = "Login";
-        welcomeBox.textContent = "";
-        authBtn.onclick = () => {
-          window.location.href = "login.html";
-        };
-      }
-    });
-  </script>
   <script src="app.js"></script>
 </body>
 </html>
