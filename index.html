@@ -2,22 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FIZO</title>
+  <title>FIZO Chat</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-left">FIZO</div>
-    <div class="nav-right"><a href="login.html">Login</a></div>
+    <div class="nav-right">
+      <button id="authBtn">Login</button>
+    </div>
   </nav>
 
-  <main>
-    <h1>Welcome to FIZO</h1>
-    <div id="chat"></div>
-    <input id="input" placeholder="Ask me something..." />
+  <main class="chat-container">
+    <div id="chat" class="chat-box"></div>
+    <div class="input-area">
+      <input id="input" placeholder="Type your message..." />
+      <button id="sendBtn">➤</button>
+    </div>
   </main>
 
+  <!-- Welcome box -->
+  <div id="welcomeBox" class="welcome-box"></div>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged, signOut } 
+      from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+    const auth = getAuth();
+    const authBtn = document.getElementById("authBtn");
+    const welcomeBox = document.getElementById("welcomeBox");
+
+    // Watch auth state
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        // User is signed in
+        authBtn.textContent = "Sign out";
+        welcomeBox.textContent = `Welcome, ${user.displayName}`;
+        authBtn.onclick = () => {
+          signOut(auth).then(() => {
+            window.location.href = "login.html";
+          });
+        };
+      } else {
+        // User not signed in
+        authBtn.textContent = "Login";
+        welcomeBox.textContent = "";
+        authBtn.onclick = () => {
+          window.location.href = "login.html";
+        };
+      }
+    });
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
-
