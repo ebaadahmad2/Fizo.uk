@@ -1,46 +1,115 @@
 body {
-  font-family: system-ui, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #121212;
+  font-family: system-ui, sans-serif;
+  background-color: #0d0d0d;
   color: #e0e0e0;
 }
 
-.navbar {
+/* Top Bar */
+.top-bar {
   display: flex;
   justify-content: space-between;
-  background: #1f1f1f;
-  color: #ffffff;
+  align-items: center;
+  background: #1a1a1a;
   padding: 12px 20px;
   border-bottom: 1px solid #333;
 }
 
-.navbar a {
-  color: #bb86fc;
-  text-decoration: none;
+.title {
+  font-size: 20px;
   font-weight: bold;
+  color: #bb86fc;
 }
 
-.navbar a:hover {
-  color: #ffffff;
+#loginBtn {
+  background: #bb86fc;
+  color: #121212;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-main {
+/* Layout */
+.main-layout {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid #333;
+}
+
+.new-chat {
+  background: #bb86fc;
+  color: #121212;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.chat-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-list li {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #2c2c2c;
+  cursor: pointer;
+}
+
+.chat-list li:hover {
+  background: #3a3a3a;
+}
+
+/* Welcome Box */
+.welcome-box {
+  background: #2c2c2c;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  color: #bb86fc;
+}
+
+/* Chat Area */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
 }
 
-#chat {
-  border: 1px solid #333;
-  background-color: #1e1e1e;
-  height: 300px;
+.chat-window {
+  flex: 1;
+  background: #121212;
+  border-radius: 8px;
+  padding: 15px;
   overflow-y: auto;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
+}
+
+.input-area {
+  display: flex;
+  margin-top: 12px;
 }
 
 #input {
-  width: 100%;
+  flex: 1;
   padding: 12px;
   border: none;
   border-radius: 6px;
@@ -48,33 +117,11 @@ main {
   color: #e0e0e0;
 }
 
-#input:focus {
-  outline: 2px solid #bb86fc;
-}
-
-button {
+#sendBtn {
   background-color: #bb86fc;
-  color: #121212;
   border: none;
-  padding: 10px 16px;
+  padding: 0 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #9a67ea;
-}
-
-/* Welcome box bottom-left */
-.welcome-box {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-  background: #1f1f1f;
-  color: #bb86fc;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  font-size: 18px;
 }
